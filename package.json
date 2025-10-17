@@ -1,0 +1,66 @@
+{
+  "name": "voluta",
+  "displayName": "cURL Edit and Resend",
+  "description": "A VS Code extension to edit and resend cURL commands.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:curlEditAndResend.sidebar"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "voluta",
+          "title": "Voluta - Simple cURL Editor",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "voluta": [
+        {
+          "id": "curlEditAndResend.sidebar",
+          "name": "Voluta - Simple cURL Editor",
+          "type": "webview"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "curlEditAndResend.openSidebar",
+        "title": "Open cURL Editor Sidebar"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./node_modules/@vscode/test-electron/out/runTest.js",
+    "clean": "rm -rf out"
+  },
+  "devDependencies": {
+    "@types/har-format": "^1.2.16",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^18.17.0",
+    "@types/vscode": "^1.80.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "@vscode/test-electron": "^2.3.4",
+    "eslint": "^8.47.0",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "curlconverter": "^4.12.0",
+    "parse-curl-js": "^1.0.3"
+  }
+}
